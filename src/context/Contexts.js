@@ -22,6 +22,7 @@ const AppProvider = ({ children }) => {
     useEffect(() => {
         let timeout = setTimeout(() => {
             getmovie(`${url}&s=${query}`);
+            setLoading(true);
         }, 1000);
         return () => clearTimeout(timeout);
     }, [query])

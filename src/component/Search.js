@@ -2,7 +2,7 @@ import React from 'react'
 import { useGlobalContext } from '../context/Contexts'
 
 const Search = () => {
-    const { query, setquery} = useGlobalContext();
+    const { query, setquery } = useGlobalContext();
     return (
         <div className='searchbox'>
             <h5>Search Your Favorite Movie</h5>

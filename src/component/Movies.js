@@ -1,14 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { BsFillClockFill } from 'react-icons/bs'
+import { MdError } from 'react-icons/md'
 import Card from '../component/Card.js';
 import { useGlobalContext } from '../context/Contexts.js'
 
 const Movies = () => {
-    const { data, isLoading } = useGlobalContext();
-    if (isLoading) {
+    const { data, isLoading, query } = useGlobalContext();
+    if (isLoading || query === "") {
         return (
             <div className="movie">
-                <h1>Loading.....</h1>
+                {query !== "" ? <h1>Loading... <BsFillClockFill /></h1> : <h1>Please Enter Movie Name <MdError /></h1>}
             </div>
         )
     }
