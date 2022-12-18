@@ -2,35 +2,32 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from 'axios';
 
 const Appcontext = createContext();
-const url = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=love`;
+const url = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
 
 const AppProvider = ({ children }) => {
-    const [isLoading, setLoading] = useState(true);
     const [data, setdata] = useState([]);
-    const [isError, setError] = useState({ show: "false", msg: "" });
+    const [query, setquery] = useState("titanic");
+    const [isLoading, setLoading] = useState(true);
     const getmovie = async (url) => {
         try {
             const datas = await axios.get(url);
             if (datas.data.Response === 'True') {
-                setLoading(false);
                 setdata(datas.data.Search);
-            }
-            else {
-                setError({
-                    show: true,
-                    msg: data.error,
-                })
+                setLoading(false);
             }
         } catch (error) {
             console.log(error);
         }
     }
     useEffect(() => {
-        getmovie(url);
-    }, [])
+        let timeout = setTimeout(() => {
+            getmovie(`${url}&s=${query}`);
+        }, 1000);
+        return () => clearTimeout(timeout);
+    }, [query])
 
     return (
-        <Appcontext.Provider value={{ data, isError, isLoading }}>
+        <Appcontext.Provider value={{ data, isLoading, query, setquery }}>
             {children}
         </Appcontext.Provider>
     )

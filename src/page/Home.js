@@ -1,10 +1,12 @@
 import React from 'react'
 import Movies from '../component/Movies'
+import Search from '../component/Search'
 
 const Home = () => {
     return (
         <div>
-            <Movies/>
+            <Search />
+            <Movies />
         </div>
     )
 }

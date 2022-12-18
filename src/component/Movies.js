@@ -4,7 +4,15 @@ import Card from '../component/Card.js';
 import { useGlobalContext } from '../context/Contexts.js'
 
 const Movies = () => {
-    const { data } = useGlobalContext();
+    const { data, isLoading } = useGlobalContext();
+    if (isLoading) {
+        return (
+            <div className="movie">
+                <h1>Loading.....</h1>
+            </div>
+        )
+    }
+
     return (
         <div className='container'>
             <div className="carddata">
