@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from 'axios';
 
 const Appcontext = createContext();
-const url = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
+const url = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
 
 const AppProvider = ({ children }) => {
     const [data, setdata] = useState([]);
