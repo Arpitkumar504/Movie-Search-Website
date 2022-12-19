@@ -26,6 +26,7 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 50px;
 }
 
 .card {
@@ -164,6 +165,10 @@ body {
 }
 
 /* singlemovie section */
+.single {
+  margin-bottom: 50px;
+}
+
 .single .title {
   font-size: 30px;
   font-weight: bold;
@@ -267,4 +272,56 @@ body {
     text-align: justify;
     padding: 10px;
   }
+}
+
+/* navbar section */
+.navbar {
+  width: 100%;
+  background-color: #1d1d1d;
+  color: #f3f3f3;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navbar h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.navbar a {
+  color: #f3f3f3 !important;
+}
+
+.navbar a:link{
+  text-decoration: none;
+}
+
+/* Footer section */
+.footer {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  font-size: 8px;
+  font-weight: bold;
+  background-color: #1d1d1d;
+  color: #f3f3f3;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.footer h1 {
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin: 0;
 }
